@@ -35,4 +35,26 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="duration_prompt">Select Duration</string>
+
+    <string-array name="duration">
+        <item>1 hour</item>
+        <item>3 hour</item>
+        <item>5 hour</item>
+        <item>8 hour</item>
+        <item>1 day</item>
+        <item>2 day</item>
+        <item>3 day</item>
+        <item>5 day</item>
+        <item>1 week</item>
+        <item>2 week</item>
+        <item>3 week</item>
+        <item>1 month</item>
+    </string-array>
+
+
+
 </resources>

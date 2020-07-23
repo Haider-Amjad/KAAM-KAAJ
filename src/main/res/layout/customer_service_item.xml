@@ -16,15 +16,19 @@
         >
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
             android:cropToPadding="false"
             android:scaleType="fitXY"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:fitsSystemWindows="true"
-            android:id="@+id/service_picture"
-            />
+            android:id="@+id/service_picture">
+
+        </ImageView>
+
 
         <TextView
             android:layout_width="wrap_content"

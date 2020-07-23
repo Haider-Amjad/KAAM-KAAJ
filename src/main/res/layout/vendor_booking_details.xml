@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="match_parent"
+            tools:context=".activities.customerActivities.ServiceProviderDetailsActivity">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Job Details"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:id="@+id/job_details"
+                        />
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/job_details"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Title: "
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/title"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Service Category: "
+                        android:id="@+id/c_service"
+                        android:layout_below="@id/title"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:layout_marginRight="@dimen/_35sdp"
+                        android:textStyle="bold"
+
+                        />
+                    <TextView
+                        android:id="@+id/c_urgent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/c_service"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_35sdp"
+                        android:text="Urgent "
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description: "
+                        android:id="@+id/c_desc"
+                        android:layout_below="@id/c_urgent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/c_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/c_desc"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_35sdp"
+                        android:text="Booking Status "
+                        android:textSize="@dimen/_11sdp"
+                        android:textStyle="bold" />
+
+
+                    <Button
+                        android:id="@+id/post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_below="@+id/c_status"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="26dp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:background="@color/colorPrimary"
+
+                        android:text="Post Bid Now!!"
+                        android:textColor="#fff" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@color/white"
+                        android:layout_below="@+id/c_status"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="Send SMS"
+                        android:textColor="@color/colorPrimary"
+                        android:drawableLeft="@drawable/ic_comment"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_12sdp"
+                        android:id="@+id/message"
+                        />
+
+
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

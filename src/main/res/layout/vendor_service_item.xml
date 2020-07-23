@@ -15,15 +15,6 @@
         android:layout_height="wrap_content"
         >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_90sdp"
-            android:layout_centerHorizontal="true"
-            android:fitsSystemWindows="true"
-            android:id="@+id/service_picture"
-
-            />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,10 +22,25 @@
             android:text="Text"
             android:layout_gravity="center"
             android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
             android:textColor="@color/colorPrimary"
             android:paddingBottom="@dimen/_10sdp"
-            android:layout_below="@id/service_picture"
+
             android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/service_desc"
+            android:text="Text"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_11sdp"
+            android:textColor="@color/colorPrimary"
+            android:paddingBottom="@dimen/_10sdp"
+            android:layout_below="@id/service_title"
+            android:layout_centerHorizontal="true"
+            android:ellipsize="end"
+            android:maxLines="1"
             />
 
     </RelativeLayout>

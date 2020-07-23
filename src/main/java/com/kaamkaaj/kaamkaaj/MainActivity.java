@@ -1,22 +1,18 @@
 package com.kaamkaaj.kaamkaaj;
 
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.cardview.widget.CardView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.kaamkaaj.kaamkaaj.R;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.kaamkaaj.kaamkaaj.Activities.ServiceProviderActivities.ServiceHomeActivity;
+import com.kaamkaaj.kaamkaaj.SharedActivities.LoginActivity;
+import com.kaamkaaj.kaamkaaj.SharedActivities.Menu;
+
+public class MainActivity extends Menu implements View.OnClickListener {
 
     //    private CardView electrician;
 //    private Toolbar toolbar;
@@ -27,15 +23,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customer_drawer);
+        super.inflateView(R.layout.activity_main);
 
-        post_button = findViewById(R.id.post_btn);
+        //post_button = findViewById(R.id.post_btn);
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer);
-        mToggle = new ActionBarDrawerToggle(this, mDrawer, R.string.open, R.string.close);
-        mDrawer.addDrawerListener(mToggle);
-        mToggle.syncState();
-        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
+//        mDrawer = (DrawerLayout) findViewById(R.id.drawer);
+//        mToggle = new ActionBarDrawerToggle(this, mDrawer, R.string.open, R.string.close);
+//        mDrawer.addDrawerListener(mToggle);
+//        mToggle.syncState();
+//        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
 
 
 //        setTitle("Customer Dashboard");etDefaultDisplayHomeAsUpEnabled(true);
@@ -44,26 +40,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+  //  @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if (mToggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//   }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == post_button.getId()) {
-            Intent intent = new Intent(this, com.kaamkaaj.kaamkaaj.LoginActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, ServiceHomeActivity.class);
         startActivity(intent);
         finish();
     }

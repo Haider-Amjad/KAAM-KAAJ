@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kaamkaaj.kaamkaaj.Activities.CustomerActivities.customer_post_request">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="Work Details"
+            android:id="@+id/work">
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Duration"
+            android:id="@+id/duration">
+        </EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:id="@+id/price">
+        </EditText>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/post_bid"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:background="@drawable/activity_register_as2"
+                android:text="Post Bid"
+                android:onClick="onClick"
+                android:textColor="#fff"
+                android:layout_marginBottom="@dimen/_18sdp"
+
+                />
+
+
+
+    </LinearLayout>
+</LinearLayout>

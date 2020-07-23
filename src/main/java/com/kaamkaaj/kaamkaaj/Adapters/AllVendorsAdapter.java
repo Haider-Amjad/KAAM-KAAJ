@@ -1,17 +1,15 @@
 package com.kaamkaaj.kaamkaaj.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.kaamkaaj.kaamkaaj.Models.Customer;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.kaamkaaj.kaamkaaj.Models.Customer;
 import com.kaamkaaj.kaamkaaj.R;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.squareup.picasso.Picasso;

@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/gradient_start_color</item>
         <item name="colorPrimaryDark">@color/transparent</item>
         <item name="colorAccent">@color/gradient_end_color</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
     <style name="spinnerTheme">
@@ -13,12 +15,15 @@
     </style>
 
 
-<!--    <style name="NoAction" parent="Theme.AppCompat.Light.NoActionBar"></style>-->
+    <style name="NoAction" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
-<!--    <style name="AppTheme.NoActionBar">-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--    </style>-->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

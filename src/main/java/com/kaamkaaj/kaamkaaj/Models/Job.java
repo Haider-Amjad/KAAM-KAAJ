@@ -1,85 +1,140 @@
 package com.kaamkaaj.kaamkaaj.Models;
 
 public class Job {
-    private String jobId;
-    private String jobStatus;
-    private String jobStartTime;
-    private String jobCustomerId;
-    private String jobVendorId;
-    private String jobServiceId;
+
+    private String jobid;
+    private String bookingStatus;
+    private String category;
+  //  private String bookingDate;
+   // private String bookingTime;
+//    private String bookingserviceProviderEmail;
+//    private String bookingserviceProviderName;
     private String customerName;
-    private String serviceName;
-    private String vendorPhone;
-    private String vendorAddress;
-    private String vendorCity;
-    private String serviceLat;
-    private String serviceLon;
+    private String customerEmail;
+    private String bookingdescription;
+    private String bookingImage;
+    private String urgent;
+    private String title;
 
-    public Job(String jobId, String jobStatus, String jobStartTime, String jobCustomerId, String jobVendorId, String jobServiceId, String customerName, String serviceName, String vendorPhone, String vendorAddress, String vendorCity, String serviceLat, String serviceLon) {
-        this.jobId = jobId;
-        this.jobStatus = jobStatus;
-        this.jobStartTime = jobStartTime;
-        this.jobCustomerId = jobCustomerId;
-        this.jobVendorId = jobVendorId;
-        this.jobServiceId = jobServiceId;
+
+    public Job(String jobid, String bookingStatus, String category, String customerName, String customerEmail, String bookingdescription, String bookingImage, String urgent, String title) {
+        this.jobid = jobid;
+        this.bookingStatus = bookingStatus;
+     this.category = category;
+      //  this.bookingDate = bookingDate;
+       // this.bookingTime = bookingTime;
+//        this.bookingserviceProviderEmail = bookingserviceProviderEmail;
+//        this.bookingserviceProviderName = bookingserviceProviderName;
         this.customerName = customerName;
-        this.serviceName = serviceName;
-        this.vendorPhone = vendorPhone;
-        this.vendorAddress = vendorAddress;
-        this.vendorCity = vendorCity;
-        this.serviceLat = serviceLat;
-        this.serviceLon = serviceLon;
+        this.customerEmail = customerEmail;
+        this.bookingdescription = bookingdescription;
+        this.bookingImage = bookingImage;
+        this.urgent = urgent;
+        this.title = title;
     }
 
-    public String getJobId() {
-        return jobId;
+    public String getJobid() {
+        return jobid;
     }
 
-    public String getJobStatus() {
-        return jobStatus;
+    public void setJobid(String jobid) {
+        this.jobid = jobid;
     }
 
-    public String getJobStartTime() {
-        return jobStartTime;
+    public String getBookingStatus() {
+        return bookingStatus;
     }
 
-    public String getJobCustomerId() {
-        return jobCustomerId;
+    public void setBookingStatus(String bookingStatus) {
+        this.bookingStatus = bookingStatus;
     }
 
-    public String getJobVendorId() {
-        return jobVendorId;
+    public String getcategory() {
+        return category;
     }
 
-    public String getJobServiceId() {
-        return jobServiceId;
+    public void setcategory(String category) {
+        this.category = category;
     }
+//
+//    public String getBookingDate() {
+//        return bookingDate;
+//    }
+//
+//    public void setBookingDate(String bookingDate) {
+//        this.bookingDate = bookingDate;
+//    }
 
-    public String getCustomerName() {
+//    public String getBookingTime() {
+//        return bookingTime;
+//    }
+//
+//    public void setBookingTime(String bookingTime) {
+//        this.bookingTime = bookingTime;
+//    }
+
+//    public String getBookingserviceProviderEmail() {
+//        return bookingserviceProviderEmail;
+//    }
+//
+//    public void setBookingserviceProviderEmail(String bookingserviceProviderEmail) {
+//        this.bookingserviceProviderEmail = bookingserviceProviderEmail;
+//    }
+//
+//    public String getBookingserviceProviderName() {
+//        return bookingserviceProviderName;
+//    }
+//
+//    public void setBookingserviceProviderName(String bookingserviceProviderName) {
+//        this.bookingserviceProviderName = bookingserviceProviderName;
+//    }
+
+    public String getcustomerName() {
         return customerName;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public void setcustomerName(String bookingcustomerName) {
+        this.customerName = bookingcustomerName;
     }
 
-    public String getVendorPhone() {
-        return vendorPhone;
+    public String getcustomerEmail() {
+        return customerEmail;
     }
 
-    public String getVendorAddress() {
-        return vendorAddress;
+    public void setcustomerEmail(String bookingcustomerEmail) {
+        this.customerEmail = bookingcustomerEmail;
     }
 
-    public String getVendorCity() {
-        return vendorCity;
+    public String getBookingdescription() {
+        return bookingdescription;
     }
 
-    public String getServiceLat() {
-        return serviceLat;
+    public void setBookingdescription(String bookingdescription) {
+        this.bookingdescription = bookingdescription;
     }
 
-    public String getServiceLon() {
-        return serviceLon;
+    public String getBookingImage() {
+        return bookingImage;
+    }
+
+    public void setBookingImage(String bookingImage) {
+        this.bookingImage = bookingImage;
+    }
+
+    public String getUrgent() {
+        return urgent;
+    }
+
+    public void setUrgent(String urgent) {
+        this.urgent = urgent;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
+

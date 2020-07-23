@@ -3,13 +3,15 @@ package com.kaamkaaj.kaamkaaj.fragments;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.kaamkaaj.kaamkaaj.Adapters.CompletedJobsAdapter;
 import com.kaamkaaj.kaamkaaj.Misc.Misc;
@@ -71,7 +73,7 @@ public class CustomerCompletedJobs extends Fragment {
         pd.setCancelable(false);
         pd.show();
         Ion.with(context)
-                .load(misc.ROOT_PATH+"completed_jobs/"+sharedPref.getUserId())
+                .load(misc.ROOT_PATH+"bookingdetails/customerCompletedBookings/"+sharedPref.getEmail())
                 .asString()
                 .withResponse()
                 .setCallback(new FutureCallback<Response<String>>() {
@@ -93,21 +95,26 @@ public class CustomerCompletedJobs extends Fragment {
                                 jobsListModel.clear();
                                 for(int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                                    String job_id = jsonObject.getString("job_id");
-                                    String job_status = jsonObject.getString("job_status");
-                                    String job_start_date = jsonObject.getString("job_start_date");
-                                    String vendor_id = jsonObject.getString("vendor_id");
-                                    String customer_id = jsonObject.getString("customer_id");
-                                    String service_id = jsonObject.getString("fk_service_id");
-                                    String customer_name = jsonObject.getString("user_name");
-                                    String service_name = jsonObject.getString("service_name");
-                                    String vendor_phone = jsonObject.getString("user_phone");
-                                    String address = jsonObject.getString("user_address");
-                                    String city = jsonObject.getString("user_city");
-                                    String lat = jsonObject.getString("user_lat");
-                                    String lon = jsonObject.getString("user_lon");
-                                    jobsListModel.add(new Job(job_id, job_status, job_start_date, customer_id, vendor_id, service_id, customer_name, service_name, vendor_phone, address, city, lat, lon));
+                                 //   String bookingDate= jsonObject.getString("date");
+                                    String jobid = jsonObject.getString("_id");
+                                    String category= jsonObject.getString("category");
+                                    String bookingStatus = jsonObject.getString("state");
+//                                    String bookingTime = jsonObject.getString(" time");
+//                                    String bookingserviceProviderEmail = jsonObject.getString("serviceProviderEmail");
+//                                    String bookingserviceProviderName = jsonObject.getString("serviceProviderName");
+                                    String bookingcustomerName = jsonObject.getString("customerName");
+                                    String bookingcustomerEmail = jsonObject.getString("customerEmail");
+                                    String bookingdescription = jsonObject.getString("description");
+                                    String urgent = jsonObject.getString("urgent");
+                                    String bookingImage = jsonObject.getString("picture");
+                                    String title = jsonObject.getString("title");
+
+
+                                    jobsListModel.add(new Job(jobid, bookingStatus, bookingcustomerName,category, bookingcustomerEmail, bookingdescription,bookingImage, urgent, title));
+                                    Log.d("length", " " + jsonArray.length());
+
                                 }
+
                                 completedJobsAdapter = new CompletedJobsAdapter(context, jobsListModel);
                                 view.setAdapter(completedJobsAdapter);
 

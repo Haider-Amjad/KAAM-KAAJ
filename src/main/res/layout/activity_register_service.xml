@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/activity_register"
-    tools:context=".serviceProviderActivities.RegisterServiceActivity">
+    tools:context=".Activities.ServiceProviderActivities.RegisterServiceActivity">
 
     <LinearLayout
         android:id="@+id/radios"
@@ -40,44 +40,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_18sdp"
-                android:background="#00FC1212"
-                android:text="@string/select_gender"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_13sdp"
-                android:textStyle="bold" />
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:orientation="horizontal">
-
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male"
-                    android:textColor="@color/white"
-                    android:checked="true"
-                    android:buttonTint="@color/white"
-                    android:id="@+id/cus_male"
-                    tools:targetApi="lollipop" />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/female"
-                    android:buttonTint="@color/white"
-                    android:layout_marginStart="@dimen/_18sdp"
-                    android:textColor="@color/white"
-                    android:id="@+id/cus_female"
-                    tools:targetApi="lollipop" />
-
-            </RadioGroup>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/select_services"
                 android:textColor="@color/white"
                 android:layout_marginStart="@dimen/_18sdp"
@@ -92,25 +54,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/services"
                 android:columnCount="3"
+                android:textColor="@color/white"
                 android:layout_marginLeft="@dimen/_18sdp"
                 android:layout_marginRight="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                >
+                android:outlineSpotShadowColor="@color/white"
+                android:outlineAmbientShadowColor="@color/white"
+                />
 
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:prompt="@string/spinner"
-                    android:background="@drawable/spinner_bg"
-                    android:textColorHint="#000000"
-                    android:popupBackground="@color/white"
-                    android:textCursorDrawable="@drawable/cursor_color" />
-
-            </GridLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,36 +105,22 @@
                 android:id="@+id/provider_phone"
                 android:inputType="phone"
                 />
+
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
+                android:gravity="top"
                 android:padding="@dimen/_7sdp"
                 android:layout_marginLeft="@dimen/_18sdp"
                 android:layout_marginRight="@dimen/_18sdp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:hint="CNIC"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:maxLength="13"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary"
-                android:background="@drawable/edittext"
-                android:id="@+id/reg_cnic"
-                android:inputType="number"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_7sdp"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:hint="Address"
+                android:hint="Street Address"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:background="@drawable/edittext"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:id="@+id/provider_address"
-                android:inputType="text"
+                android:inputType="text|textMultiLine"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -196,6 +135,21 @@
                 android:textColorHint="@color/colorPrimary"
                 android:background="@drawable/edittext"
                 android:id="@+id/provider_city"
+                android:inputType="text"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:padding="@dimen/_7sdp"
+                android:layout_marginLeft="@dimen/_18sdp"
+                android:layout_marginRight="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:hint="Country"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:background="@drawable/edittext"
+                android:id="@+id/provider_country"
                 android:inputType="text"
                 />
             <TextView
@@ -276,20 +230,6 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_7sdp"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:hint="Service Charges"
-                android:textColor="@color/colorPrimary"
-                android:textColorHint="@color/colorPrimary"
-                android:background="@drawable/edittext"
-                android:id="@+id/provider_charges"
-                android:inputType="number"
-                />
 
             <Button
                 android:id="@+id/provider_register_button"
@@ -300,7 +240,6 @@
                 android:layout_marginRight="@dimen/_18sdp"
                 android:layout_marginBottom="@dimen/_18sdp"
                 android:background="@drawable/activity_register_as2"
-                android:onClick="next"
                 android:text="Register"
                 android:textColor="#fff" />
         </LinearLayout>

@@ -3,13 +3,14 @@ package com.kaamkaaj.kaamkaaj.fragments;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.kaamkaaj.kaamkaaj.Adapters.InProgressJobsAdapter;
 import com.kaamkaaj.kaamkaaj.Misc.Misc;
@@ -35,7 +36,6 @@ public class CustomerInProgressJobs extends Fragment {
     InProgressJobsAdapter jobsAdapter;
     private RecyclerView view;
     private TextView textView;
-    private String customerId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +48,7 @@ public class CustomerInProgressJobs extends Fragment {
         sharedPref = new SharedPref(context);
 
         jobsListModel = new ArrayList<>();
-        jobsAdapter = new InProgressJobsAdapter(context, jobsListModel, customerId);
+        jobsAdapter = new InProgressJobsAdapter(context,jobsListModel);
 
         textView = rootView.findViewById(R.id.no_ip);
 
@@ -57,7 +57,7 @@ public class CustomerInProgressJobs extends Fragment {
         view.setAdapter(jobsAdapter);
 
         if(misc.isConnectedToInternet()) {
-            pendingJobs();
+            inProgressJobs();
         }
         else{
             misc.showToast("No Internet Connection");
@@ -65,13 +65,13 @@ public class CustomerInProgressJobs extends Fragment {
         return rootView;
     }
 
-    private void pendingJobs() {
+    private void inProgressJobs() {
         final ProgressDialog pd = new ProgressDialog(context);
         pd.setMessage("Please wait... ");
         pd.setCancelable(false);
         pd.show();
         Ion.with(context)
-                .load(misc.ROOT_PATH+"in_progress_jobs/"+sharedPref.getUserId())
+                .load(misc.ROOT_PATH+"bookingdetails/customerInProgressBookings/"+sharedPref.getEmail())
                 .asString()
                 .withResponse()
                 .setCallback(new FutureCallback<Response<String>>() {
@@ -93,22 +93,24 @@ public class CustomerInProgressJobs extends Fragment {
                                 jobsListModel.clear();
                                 for(int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                                    String job_id = jsonObject.getString("job_id");
-                                    String job_status = jsonObject.getString("job_status");
-                                    String job_start_date = jsonObject.getString("job_start_date");
-                                    String vendor_id = jsonObject.getString("vendor_id");
-                                    String customer_id = jsonObject.getString("customer_id");
-                                    String service_id = jsonObject.getString("fk_service_id");
-                                    String customer_name = jsonObject.getString("user_name");
-                                    String service_name = jsonObject.getString("service_name");
-                                    String vendor_phone = jsonObject.getString("user_phone");
-                                    String address = jsonObject.getString("user_address");
-                                    String city = jsonObject.getString("user_city");
-                                    String lat = jsonObject.getString("user_lat");
-                                    String lon = jsonObject.getString("user_lon");
-                                    jobsListModel.add(new Job(job_id, job_status, job_start_date, customer_id, vendor_id, service_id, customer_name, service_name, vendor_phone, address, city, lat, lon));
+                                   // String bookingDate= jsonObject.getString("date");
+                                    String jobid = jsonObject.getString("_id");
+                                    String category = jsonObject.getString("category");
+                                    String bookingStatus = jsonObject.getString("state");
+                                   // String bookingTime = jsonObject.getString(" time");
+//                                    String bookingserviceProviderEmail = jsonObject.getString("serviceProviderEmail");
+//                                    String bookingserviceProviderName = jsonObject.getString("serviceProviderName");
+                                    String bookingcustomerName = jsonObject.getString("customerName");
+                                    String bookingcustomerEmail = jsonObject.getString("customerEmail");
+                                    String bookingdescription = jsonObject.getString("description");
+                                    String urgent = jsonObject.getString("urgent");
+                                    String bookingImage = jsonObject.getString("picture");
+                                    String title = jsonObject.getString("title");
+
+
+                                    jobsListModel.add(new Job(jobid, bookingStatus,category, bookingcustomerName, bookingcustomerEmail, bookingdescription,bookingImage, urgent, title));
                                 }
-                                jobsAdapter = new InProgressJobsAdapter(context, jobsListModel, customerId);
+                                jobsAdapter = new InProgressJobsAdapter(context, jobsListModel);
                                 view.setAdapter(jobsAdapter);
 
                                 pd.dismiss();

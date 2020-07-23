@@ -3,19 +3,18 @@ package com.kaamkaaj.kaamkaaj.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.kaamkaaj.kaamkaaj.Activities.ServiceProviderActivities.VendorBookings;
 import com.kaamkaaj.kaamkaaj.Misc.Misc;
-import com.kaamkaaj.kaamkaaj.Models.Service;
+import com.kaamkaaj.kaamkaaj.Models.Job;
 import com.kaamkaaj.kaamkaaj.R;
-import com.kaamkaaj.kaamkaaj.serviceProviderActivities.VendorMapActivity;
-import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -23,18 +22,18 @@ import java.util.Locale;
 public class VendorServiceAdapter extends RecyclerView.Adapter<VendorServiceAdapter.VendorServiceViewHolder> {
 
     private Context context;
-    private ArrayList<Service> serviceListModel = new ArrayList<>();
-    private ArrayList<Service> tempServiceListModel = new ArrayList<>();
+    private ArrayList<Job> serviceListModel = new ArrayList<>();
+    private ArrayList<Job> tempServiceListModel = new ArrayList<>();
 
-    public VendorServiceAdapter(Context context, ArrayList<Service> serviceListModel ){
+    public VendorServiceAdapter(Context context, ArrayList<Job> serviceListModel ){
         this.context = context;
         this.serviceListModel = serviceListModel;
-        this.tempServiceListModel = new ArrayList<Service>();
+        this.tempServiceListModel = new ArrayList<Job>();
         this.tempServiceListModel.addAll(serviceListModel);
     }
 
-    public void setTemp(ArrayList<Service> serviceListModel) {
-        this.tempServiceListModel = new ArrayList<Service>();
+    public void setTemp(ArrayList<Job> serviceListModel) {
+        this.tempServiceListModel = new ArrayList<Job>();
         this.tempServiceListModel.addAll(serviceListModel);
     }
 
@@ -44,8 +43,8 @@ public class VendorServiceAdapter extends RecyclerView.Adapter<VendorServiceAdap
         if (charText.length() == 0) {
             serviceListModel.addAll(tempServiceListModel);
         } else {
-            for (Service af : tempServiceListModel) {
-                if (af.getServiceName().toLowerCase().contains(charText)) {
+            for (Job af : tempServiceListModel) {
+                if (af.getTitle().toLowerCase().contains(charText)) {
                     serviceListModel.add(af);
                 }
             }
@@ -58,7 +57,7 @@ public class VendorServiceAdapter extends RecyclerView.Adapter<VendorServiceAdap
     @Override
     public VendorServiceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View view = inflater.inflate(R.layout.customer_service_item, viewGroup, false);
+        View view = inflater.inflate(R.layout.vendor_service_item, viewGroup, false);
         return new VendorServiceViewHolder(view);
     }
 
@@ -74,34 +73,41 @@ public class VendorServiceAdapter extends RecyclerView.Adapter<VendorServiceAdap
 
     public class VendorServiceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView image;
+
         private TextView title;
+        private TextView description;
         Misc misc;
 
         public VendorServiceViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            image = itemView.findViewById(R.id.service_picture);
+            description=itemView.findViewById(R.id.service_desc);
             title = itemView.findViewById(R.id.service_title);
             misc = new Misc(context);
 
             itemView.setOnClickListener(this);
         }
 
-        public void setData(Service service){
-            title.setText(service.getServiceName());
-            String serviceImage = service.getServiceImage();
+        public void setData(Job service){
+            title.setText(service.getTitle());
+            description.setText(service.getBookingdescription());
 
-            Ion.with(context)
-                    .load(serviceImage)
-                    .intoImageView(image);
+
         }
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context, VendorMapActivity.class);
-            intent.putExtra("service_id", serviceListModel.get(getAdapterPosition()).getServiceId());
-            intent.putExtra("service_name", serviceListModel.get(getAdapterPosition()).getServiceName());
+            Intent intent = new Intent(context, VendorBookings.class);
+            intent.putExtra("title", serviceListModel.get(getAdapterPosition()).getTitle());
+            intent.putExtra("jobid", serviceListModel.get(getAdapterPosition()).getJobid());
+            intent.putExtra("bookingStatus", serviceListModel.get(getAdapterPosition()).getBookingStatus());
+            intent.putExtra("category", serviceListModel.get(getAdapterPosition()).getcategory());
+            intent.putExtra("customerName", serviceListModel.get(getAdapterPosition()).getcustomerName());
+            intent.putExtra("customerEmail", serviceListModel.get(getAdapterPosition()).getcustomerEmail());
+
+            intent.putExtra("urgent", serviceListModel.get(getAdapterPosition()).getUrgent());
+            intent.putExtra("bookingdescription", serviceListModel.get(getAdapterPosition()).getBookingdescription());
+//            intent.putExtra("calling","searchByName");
             context.startActivity(intent);
             ((Activity) context).finish();
         }

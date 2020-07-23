@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".CustomerActivities.RegisterActivity"
     android:background="@drawable/activity_register"
     >
 
@@ -39,44 +39,44 @@
             android:orientation="vertical"
             android:background="@drawable/activity_register"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/select_gender"
-                android:textColor="@color/white"
-                android:layout_marginStart="@dimen/_18sdp"
-                android:textStyle="bold"
-                android:textSize="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                />
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:orientation="horizontal">
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/select_gender"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_marginStart="@dimen/_18sdp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="@dimen/_13sdp"-->
+<!--                android:layout_marginTop="@dimen/_5sdp"-->
+<!--                />-->
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_18sdp"-->
+<!--                android:layout_marginRight="@dimen/_18sdp"-->
+<!--                android:orientation="horizontal">-->
 
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/male"
-                    android:textColor="@color/white"
-                    android:checked="true"
-                    android:buttonTint="@color/white"
-                    android:id="@+id/cus_male"
-                    tools:targetApi="lollipop" />
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/female"
-                    android:buttonTint="@color/white"
-                    android:layout_marginStart="@dimen/_18sdp"
-                    android:textColor="@color/white"
-                    android:id="@+id/cus_female"
-                    tools:targetApi="lollipop" />
+<!--                <RadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/male"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:checked="true"-->
+<!--                    android:buttonTint="@color/white"-->
+<!--                    android:id="@+id/cus_male"-->
+<!--                    tools:targetApi="lollipop" />-->
+<!--                <RadioButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/female"-->
+<!--                    android:buttonTint="@color/white"-->
+<!--                    android:layout_marginStart="@dimen/_18sdp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:id="@+id/cus_female"-->
+<!--                    tools:targetApi="lollipop" />-->
 
-            </RadioGroup>
+<!--            </RadioGroup>-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,22 +118,22 @@
                 android:textColorHint="@color/colorPrimaryDark"
                 android:textSize="@dimen/_13sdp"
                 android:textCursorDrawable="@drawable/cursor_color" />
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cus_reg_cnic"
-                android:layout_marginRight="@dimen/_18sdp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginLeft="@dimen/_18sdp"
-                android:maxLength="13"
-                android:hint="CNIC"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/edittext"
-                android:inputType="number"
-                android:padding="@dimen/_10sdp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="@dimen/_13sdp"
-                android:textCursorDrawable="@drawable/cursor_color" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/cus_reg_cnic"-->
+<!--                android:layout_marginRight="@dimen/_18sdp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_8sdp"-->
+<!--                android:layout_marginLeft="@dimen/_18sdp"-->
+<!--                android:maxLength="13"-->
+<!--                android:hint="CNIC"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                android:background="@drawable/edittext"-->
+<!--                android:inputType="number"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:textColorHint="@color/colorPrimaryDark"-->
+<!--                android:textSize="@dimen/_13sdp"-->
+<!--                android:textCursorDrawable="@drawable/cursor_color" />-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

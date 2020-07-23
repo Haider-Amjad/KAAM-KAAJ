@@ -3,18 +3,19 @@ package com.kaamkaaj.kaamkaaj.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kaamkaaj.kaamkaaj.MapsActivity;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.kaamkaaj.kaamkaaj.Misc.Misc;
-import com.kaamkaaj.kaamkaaj.Models.Service;
+import com.kaamkaaj.kaamkaaj.Models.ServiceCategory;
 import com.kaamkaaj.kaamkaaj.R;
+import com.kaamkaaj.kaamkaaj.SharedActivities.MapsActivity;
 import com.kaamkaaj.kaamkaaj.SharedPref.SharedPref;
 import com.koushikdutta.ion.Ion;
 
@@ -24,18 +25,18 @@ import java.util.Locale;
 public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerServiceAdapter.CustomerServiceViewHolder> {
 
     private Context context;
-    private ArrayList<Service> serviceListModel = new ArrayList<>();
-    private ArrayList<Service> tempServiceListModel = new ArrayList<>();
+    private ArrayList<ServiceCategory> serviceListModel = new ArrayList<>();
+    private ArrayList<ServiceCategory> tempServiceListModel = new ArrayList<>();
 
-    public CustomerServiceAdapter(Context context, ArrayList<Service> serviceListModel ){
+    public CustomerServiceAdapter(Context context, ArrayList<ServiceCategory> serviceListModel ){
         this.context = context;
         this.serviceListModel = serviceListModel;
-        this.tempServiceListModel = new ArrayList<Service>();
+        this.tempServiceListModel = new ArrayList<ServiceCategory>();
         this.tempServiceListModel.addAll(serviceListModel);
     }
 
-    public void setTemp(ArrayList<Service> serviceListModel) {
-        this.tempServiceListModel = new ArrayList<Service>();
+    public void setTemp(ArrayList<ServiceCategory> serviceListModel) {
+        this.tempServiceListModel = new ArrayList<ServiceCategory>();
         this.tempServiceListModel.addAll(serviceListModel);
     }
 
@@ -46,7 +47,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
         if (charText.length() == 0) {
             serviceListModel.addAll(tempServiceListModel);
         } else {
-            for (Service af : tempServiceListModel) {
+            for (ServiceCategory af : tempServiceListModel) {
                 if (af.getServiceName().toLowerCase().contains(charText)) {
                     serviceListModel.add(af);
                 }
@@ -90,7 +91,7 @@ public class CustomerServiceAdapter extends RecyclerView.Adapter<CustomerService
             itemView.setOnClickListener(this);
         }
 
-        public void setData(Service service){
+        public void setData(ServiceCategory service){
             title.setText(service.getServiceName());
             String serviceImage = service.getServiceImage();
 
